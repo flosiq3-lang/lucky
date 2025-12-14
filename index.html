@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Casino - Play Now!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="casino-container">
+        <!-- Header -->
+        <header class="casino-header">
+            <div class="logo">
+                <h1>🎰 Lucky Casino</h1>
+            </div>
+            <div class="header-right">
+                <div class="user-info">
+                    <div class="user-name" id="user-name">User</div>
+                    <div class="user-role" id="user-role">Player</div>
+                </div>
+                <div class="balance-display">
+                    <div class="balance-label">Balance</div>
+                    <div class="balance-amount" id="balance">1,000€</div>
+                </div>
+                <button class="logout-btn" id="logout-btn">Logout</button>
+                <button class="admin-btn" id="admin-btn" style="display: none;">⚙️ Admin Panel</button>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="game-nav">
+            <button class="nav-btn active" data-game="slots">🎰 Slots</button>
+            <button class="nav-btn" data-game="blackjack">🃏 Blackjack</button>
+            <button class="nav-btn" data-game="roulette">🎲 Roulette</button>
+        </nav>
+
+        <!-- Game Sections -->
+        <main class="game-area">
+            <!-- Slots Game -->
+            <section id="slots" class="game-section active">
+                <div class="game-title">Slot Machine</div>
+                <div class="slots-container">
+                    <div class="slot-machine">
+                        <div class="theme-selector">
+                            <label>Theme:</label>
+                            <select id="slot-theme">
+                                <option value="classic">Classic Fruits</option>
+                                <option value="diamonds">Diamonds</option>
+                                <option value="animals">Animals</option>
+                                <option value="space">Space</option>
+                                <option value="ocean">Ocean</option>
+                            </select>
+                        </div>
+                        <div class="reels-container">
+                            <div class="reel" id="reel1"></div>
+                            <div class="reel" id="reel2"></div>
+                            <div class="reel" id="reel3"></div>
+                        </div>
+                        <div class="slots-controls">
+                            <div class="bet-control">
+                                <label>Bet Amount:</label>
+                                <div class="bet-amount-buttons">
+                                    <button class="bet-amount-btn" data-amount="5">5€</button>
+                                    <button class="bet-amount-btn" data-amount="4">4€</button>
+                                    <button class="bet-amount-btn" data-amount="3">3€</button>
+                                    <button class="bet-amount-btn" data-amount="2">2€</button>
+                                    <button class="bet-amount-btn" data-amount="1">1€</button>
+                                    <button class="bet-amount-btn" data-amount="0.5">0.50€</button>
+                                </div>
+                                <input type="hidden" id="slots-bet" value="1">
+                            </div>
+                            <button class="spin-btn" id="spin-btn">SPIN</button>
+                        </div>
+                        <div class="win-message" id="slots-win-message"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blackjack Game -->
+            <section id="blackjack" class="game-section">
+                <div class="game-title">Blackjack</div>
+                <div class="blackjack-container">
+                    <div class="dealer-area">
+                        <div class="player-label">Dealer</div>
+                        <div class="cards-container" id="dealer-cards"></div>
+                        <div class="score" id="dealer-score">Score: 0</div>
+                    </div>
+                    <div class="player-area">
+                        <div class="player-label">You</div>
+                        <div class="cards-container" id="player-cards"></div>
+                        <div class="score" id="player-score">Score: 0</div>
+                    </div>
+                    <div class="blackjack-controls">
+                        <div class="bet-control">
+                            <label>Bet Amount:</label>
+                            <div class="bet-amount-buttons">
+                                <button class="bet-amount-btn" data-amount="5">5€</button>
+                                <button class="bet-amount-btn" data-amount="4">4€</button>
+                                <button class="bet-amount-btn" data-amount="3">3€</button>
+                                <button class="bet-amount-btn" data-amount="2">2€</button>
+                                <button class="bet-amount-btn" data-amount="1">1€</button>
+                                <button class="bet-amount-btn" data-amount="0.5">0.50€</button>
+                            </div>
+                            <input type="hidden" id="blackjack-bet" value="1">
+                        </div>
+                        <div class="game-buttons">
+                            <button class="game-btn" id="deal-btn">Deal</button>
+                            <button class="game-btn" id="hit-btn" disabled>Hit</button>
+                            <button class="game-btn" id="stand-btn" disabled>Stand</button>
+                        </div>
+                        <div class="win-message" id="blackjack-win-message"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Roulette Game -->
+            <section id="roulette" class="game-section">
+                <div class="game-title">Roulette</div>
+                <div class="roulette-container">
+                    <div class="roulette-wheel-container">
+                        <div class="roulette-wheel" id="roulette-wheel">
+                            <div class="wheel-number" data-number="0">0</div>
+                            <div class="wheel-number" data-number="1">1</div>
+                            <div class="wheel-number" data-number="2">2</div>
+                            <div class="wheel-number" data-number="3">3</div>
+                            <div class="wheel-number" data-number="4">4</div>
+                            <div class="wheel-number" data-number="5">5</div>
+                            <div class="wheel-number" data-number="6">6</div>
+                            <div class="wheel-number" data-number="7">7</div>
+                            <div class="wheel-number" data-number="8">8</div>
+                            <div class="wheel-number" data-number="9">9</div>
+                            <div class="wheel-number" data-number="10">10</div>
+                            <div class="wheel-number" data-number="11">11</div>
+                            <div class="wheel-number" data-number="12">12</div>
+                            <div class="wheel-number" data-number="13">13</div>
+                            <div class="wheel-number" data-number="14">14</div>
+                            <div class="wheel-number" data-number="15">15</div>
+                            <div class="wheel-number" data-number="16">16</div>
+                            <div class="wheel-number" data-number="17">17</div>
+                            <div class="wheel-number" data-number="18">18</div>
+                            <div class="wheel-number" data-number="19">19</div>
+                            <div class="wheel-number" data-number="20">20</div>
+                            <div class="wheel-number" data-number="21">21</div>
+                            <div class="wheel-number" data-number="22">22</div>
+                            <div class="wheel-number" data-number="23">23</div>
+                            <div class="wheel-number" data-number="24">24</div>
+                            <div class="wheel-number" data-number="25">25</div>
+                            <div class="wheel-number" data-number="26">26</div>
+                            <div class="wheel-number" data-number="27">27</div>
+                            <div class="wheel-number" data-number="28">28</div>
+                            <div class="wheel-number" data-number="29">29</div>
+                            <div class="wheel-number" data-number="30">30</div>
+                            <div class="wheel-number" data-number="31">31</div>
+                            <div class="wheel-number" data-number="32">32</div>
+                            <div class="wheel-number" data-number="33">33</div>
+                            <div class="wheel-number" data-number="34">34</div>
+                            <div class="wheel-number" data-number="35">35</div>
+                            <div class="wheel-number" data-number="36">36</div>
+                        </div>
+                        <div class="ball" id="roulette-ball"></div>
+                    </div>
+                    <div class="roulette-controls">
+                        <div class="bet-control">
+                            <label>Bet Amount:</label>
+                            <div class="bet-amount-buttons">
+                                <button class="bet-amount-btn" data-amount="5">5€</button>
+                                <button class="bet-amount-btn" data-amount="4">4€</button>
+                                <button class="bet-amount-btn" data-amount="3">3€</button>
+                                <button class="bet-amount-btn" data-amount="2">2€</button>
+                                <button class="bet-amount-btn" data-amount="1">1€</button>
+                                <button class="bet-amount-btn" data-amount="0.5">0.50€</button>
+                            </div>
+                            <input type="hidden" id="roulette-bet" value="1">
+                        </div>
+                        <div class="bet-options">
+                            <button class="bet-option" data-bet="red">Red</button>
+                            <button class="bet-option" data-bet="black">Black</button>
+                            <button class="bet-option" data-bet="green">0</button>
+                            <button class="bet-option" data-bet="even">Even</button>
+                            <button class="bet-option" data-bet="odd">Odd</button>
+                        </div>
+                        <button class="spin-btn" id="roulette-spin-btn">SPIN</button>
+                        <div class="win-message" id="roulette-win-message"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Admin Panel Modal -->
+        <div class="modal-overlay" id="admin-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>⚙️ Admin Panel</h2>
+                    <button class="close-btn" id="close-admin-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="admin-tabs">
+                        <button class="admin-tab active" data-tab="users">Users</button>
+                        <button class="admin-tab" data-tab="winrates">Winrates</button>
+                        <button class="admin-tab" data-tab="credits">Send Credits</button>
+                    </div>
+                    
+                    <!-- Users Tab -->
+                    <div class="admin-tab-content active" id="tab-users">
+                        <h3>User Management</h3>
+                        <div class="create-user-form">
+                            <h4>Create New User</h4>
+                            <input type="text" id="new-username" placeholder="Username">
+                            <input type="password" id="new-password" placeholder="Password">
+                            <select id="new-role">
+                                <option value="user">User</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                            <input type="number" id="new-credits" placeholder="Initial Credits" value="1000">
+                            <button class="admin-action-btn" id="create-user-btn">Create User</button>
+                        </div>
+                        <div class="users-list">
+                            <h4>Existing Users</h4>
+                            <div id="users-list-container"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Winrates Tab -->
+                    <div class="admin-tab-content" id="tab-winrates">
+                        <h3>Game Winrate Controls</h3>
+                        <div class="winrate-controls">
+                            <div class="winrate-item">
+                                <label>Slots Winrate (%):</label>
+                                <input type="number" id="slots-winrate" min="0" max="100" value="10" step="1">
+                                <span class="winrate-value" id="slots-winrate-value">10%</span>
+                            </div>
+                            <div class="winrate-item">
+                                <label>Roulette Winrate (%):</label>
+                                <input type="number" id="roulette-winrate" min="0" max="100" value="10" step="1">
+                                <span class="winrate-value" id="roulette-winrate-value">10%</span>
+                            </div>
+                            <div class="winrate-item">
+                                <label>Blackjack Winrate (%):</label>
+                                <input type="number" id="blackjack-winrate" min="0" max="100" value="10" step="1">
+                                <span class="winrate-value" id="blackjack-winrate-value">10%</span>
+                            </div>
+                            <button class="admin-action-btn" id="save-winrates-btn">Save Winrates</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Credits Tab -->
+                    <div class="admin-tab-content" id="tab-credits">
+                        <h3>Manage User Credits</h3>
+                        <div class="send-credits-form">
+                            <select id="credit-user-select">
+                                <option value="">Select User</option>
+                            </select>
+                            <input type="number" id="credit-amount" placeholder="Amount" min="0.01" step="0.01">
+                            <div class="credit-buttons">
+                                <button class="admin-action-btn" id="send-credits-btn">Add Credits</button>
+                                <button class="admin-action-btn remove-btn" id="remove-credits-btn">Remove Credits</button>
+                            </div>
+                        </div>
+                        <div class="credits-history">
+                            <h4>Recent Transactions</h4>
+                            <div id="credits-history-container"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
